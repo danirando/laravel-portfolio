@@ -1,13 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @vite(['./resources/css/app.css', './resources/js/app.js'])
-</head>
-<body>
-    <h1>index dei projects</h1>
-</body>
-</html>
+@extends('layouts.master')
+
+@section('content')
+<div class="container my-3">  
+      <h1 class="mb-3">Progetti</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                Nome
+            </th>
+            <th>
+                Periodo
+            </th>
+            <th>
+
+            </th>
+        </tr>
+            
+        </thead>
+        <tbody>
+            @foreach ($projects as $project)
+               <tr>
+                   <td>{{ $project->name }}</td>
+                   <td>{{ explode(' ', $project->period)[0] }}</td>
+                   <td><a href="{{ route('projects.show', $project->id)}}">Dettagli</a></td>
+                </tr>
+                @endforeach
+        </tbody>
+    </table></div>
+
+@endsection
