@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,8 @@ Route::middleware(['auth', 'verified'])
         // /admin/profile
         Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
     });
+
+Route::resource('projects', ProjectController::class)->middleware(['auth', 'verified']);
 
 // Rotte di autenticazione (login, registrazione, password reset, ecc.)
 require __DIR__.'/auth.php';
