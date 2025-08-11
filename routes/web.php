@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 // Rotta per la home page
 Route::get('/', function () {
-    return view('index');
+    return redirect()->route('login');
 });
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="container my-3">  
-      <h1 class="mb-3">Progetti</h1>
+
+    <div class="container d-flex justify-content-between"><h1 class="mb-3">Progetti</h1>
+
+      <a class="btn btn-primary" href="{{ route('projects.create')}}">Aggiungi progetto</a></div>
+      
 
     <table class="table">
         <thead>
