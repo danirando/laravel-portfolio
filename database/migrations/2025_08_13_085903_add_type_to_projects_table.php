@@ -8,19 +8,21 @@ return new class () extends Migration {
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->text('description')->change();
+            $table->foreignId('type_id')->default(1)->constrained();
         });
     }
+
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            // $table->string('description', 255)->change();
+            $table->dropForeign("project_type_id_foreign");
+            $table->dropColumn("type_id");
         });
     }
 };

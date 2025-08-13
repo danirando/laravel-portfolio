@@ -10,17 +10,21 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->text('description')->change();
-        });
+        if (!Schema::hasTable('types')) {
+            Schema::create('types', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->timestamps();
+            });
+        }
     }
+
+
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
-        Schema::table('projects', function (Blueprint $table) {
-            // $table->string('description', 255)->change();
-        });
+        Schema::dropIfExists('types');
     }
 };
