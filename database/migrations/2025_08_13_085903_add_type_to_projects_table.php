@@ -21,8 +21,8 @@ return new class () extends Migration {
     public function down(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropForeign("project_type_id_foreign");
-            $table->dropColumn("type_id");
+            $table->dropForeign(['type_id']); // assicurati che il nome della colonna sia corretto
+            $table->dropColumn('type_id');
         });
     }
 };

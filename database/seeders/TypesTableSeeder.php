@@ -13,17 +13,17 @@ class TypesTableSeeder extends Seeder
     public function run(): void
     {
         $types = [
-            'Laravel',
-            'React',
-            'Node.js',
-            'Express',
-            'MySQL',
-            'PHP',
-            'JavaScript',
-            'HTML',
-            'CSS',
-            'Bootstrap'
-        ];
+  "Web app",
+  "Mobile app",
+  "API / Backend service",
+  "Single Page Application (SPA)",
+  "Data analysis / Machine Learning",
+  "IoT / Hardware project",
+  "Videogame / Multimedia",
+  "Open source library / tool",
+  "Dashboard interattiva",
+  "Ecommerce platform"
+];
 
         foreach ($types as $typeName) {
             Type::create(['name' => $typeName]);
