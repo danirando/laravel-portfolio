@@ -27,7 +27,26 @@
             @endforeach
         </select>
 
-        <button class="btn btn-primary">Salva</button>
+        <label class="form-label mt-3">Tecnologie:</label>
+        <div class="d-flex flex-column gap-1">
+            @foreach($technologies as $technology)
+                <div class="form-check">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        name="technologies[]" 
+                        value="{{ $technology->id }}" 
+                        id="tech{{ $technology->id }}"
+                        {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}
+                    >
+                    <label class="form-check-label" for="tech{{ $technology->id }}">
+                        {{ $technology->name }}
+                    </label>
+                </div>
+            @endforeach
+        </div>
+
+        <button class="btn btn-primary mt-3">Salva</button>
     </form>
 </div>
 @endsection
